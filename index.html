@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أنيسو تيراميسو | أفضل تيراميسو في الجزائر</title>
+  <meta name="description"
+    content="أنيسو تيراميسو — أفضل تيراميسو جزائري حقيقي من ولاية خنشلة. اطلب قطعتك الآن واستمتع بأرقى المذاق." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Oswald:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== STORY INTRO OVERLAY ===== -->
+  <div class="story-intro" id="storyIntro">
+    <canvas class="intro-particles" id="introParticles"></canvas>
+
+    <div class="intro-chapter" id="ch1">
+      <div class="ch-bg ch-bg-1"></div>
+      <div class="ch-inner">
+        <div class="ch-eyebrow">🇩🇿 الجزائر العميقة</div>
+        <h2 class="ch-title">في قلب جبال أوراس<br /><span class="ch-highlight">ولاية خنشلة</span></h2>
+        <p class="ch-desc">حيث تعانق الثلوج القمم،<br />وتعطر الأودية بعطر الأصالة...</p>
+        <div class="ch-mountains">
+          <div class="mt mt1"></div>
+          <div class="mt mt2"></div>
+          <div class="mt mt3"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro-chapter" id="ch2">
+      <div class="ch-bg ch-bg-2"></div>
+      <div class="ch-inner">
+        <div class="ch-eyebrow">💡 ولدت الفكرة</div>
+        <h2 class="ch-title">حلم جزائري<br /><span class="ch-highlight">جريء وبسيط</span></h2>
+        <p class="ch-desc">"لماذا لا يكون للجزائريين<br />تيراميسوهم الخاص؟"</p>
+        <div class="ch-bulb">🍮</div>
+        <div class="ch-stars"><span>✦</span><span>✦</span><span>✦</span><span>✦</span><span>✦</span></div>
+      </div>
+    </div>
+
+    <div class="intro-chapter" id="ch3">
+      <div class="ch-bg ch-bg-3"></div>
+      <div class="ch-inner">
+        <div class="ch-eyebrow">💪 عزيمة لا تُكسر</div>
+        <h2 class="ch-title">يوم بعد يوم<br /><span class="ch-highlight">محاولة بعد محاولة</span></h2>
+        <p class="ch-desc">بعزيمة أبناء خنشلة<br />وصبرهم الأسطوري،<br />واصلنا حتى النجاح</p>
+        <div class="ch-progress-bars">
+          <div class="cpb">
+            <div class="cpb-fill" style="--w:25%">بداية...</div>
+          </div>
+          <div class="cpb">
+            <div class="cpb-fill" style="--w:55%">نمو...</div>
+          </div>
+          <div class="cpb">
+            <div class="cpb-fill" style="--w:90%">نجاح! 🎉</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro-chapter" id="ch4">
+      <div class="ch-bg ch-bg-4"></div>
+      <div class="ch-inner">
+        <div class="intro-logo-big">🍮</div>
+        <div class="ch-eyebrow">⭐ اليوم نفخر بـ</div>
+        <h2 class="ch-title ch-title-big">أنيسو تيراميسو</h2>
+        <p class="ch-desc ch-desc-big">ليس مجرد حلوى...<br />بل قصة نجاح خنشلاوية<br />تُروى من الشرق إلى الغرب 🇩🇿</p>
+        <div class="ch-stats-row">
+          <div class="ch-stat"><span class="ch-sn">+5000</span><span class="ch-sl">زبون سعيد</span></div>
+          <div class="ch-stat"><span class="ch-sn">100%</span><span class="ch-sl">طبيعي</span></div>
+          <div class="ch-stat"><span class="ch-sn">+20</span><span class="ch-sl">ولاية</span></div>
+        </div>
+        <button class="intro-enter-btn" onclick="dismissIntro()">اكتشف عالمنا ✨</button>
+      </div>
+    </div>
+
+    <div class="intro-dots">
+      <div class="intro-dot active" id="idot0"></div>
+      <div class="intro-dot" id="idot1"></div>
+      <div class="intro-dot" id="idot2"></div>
+      <div class="intro-dot" id="idot3"></div>
+    </div>
+    <button class="intro-skip-top" onclick="dismissIntro()">تخطى الكل ←</button>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-icon">🍮</span>
+        <span class="logo-text">أنيسو تيراميسو</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#products">منتجاتنا</a></li>
+        <li><a href="#stores">محلاتنا</a></li>
+        <li><a href="#story">قصتنا</a></li>
+        <li><a href="#reviews">الآراء</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+      <a href="#order" class="nav-cta" id="navCta">اطلب الآن</a>
+      <button class="hamburger" id="hamburger" aria-label="قائمة التنقل">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-media">
+      <div class="hero-img-bg"></div>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-sub reveal">صنع في خنشلة — الجزائر</p>
+      <h1 class="hero-title reveal delay-1">أنيسو<br />تيراميسو</h1>
+      <p class="hero-tagline reveal delay-2">الأصيل الجزائري</p>
+      <div class="hero-btns reveal delay-3">
+        <a href="#order" class="btn btn-rust">اطلب الآن</a>
+        <a href="#story" class="btn btn-outline-w">قصتنا</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>اسحب للأسفل</span>
+    </div>
+  </section>
+
+  <!-- ===== TAGLINE STRIP ===== -->
+  <div class="tagline-strip">
+    <div class="strip-track">
+      <span>أنيسو تيراميسو</span><span class="sep">✦</span>
+      <span>خنشلة تبدع</span><span class="sep">✦</span>
+      <span>100% طبيعي</span><span class="sep">✦</span>
+      <span>+5000 زبون سعيد</span><span class="sep">✦</span>
+      <span>توصيل لكل الجزائر</span><span class="sep">✦</span>
+      <span>أنيسو تيراميسو</span><span class="sep">✦</span>
+      <span>خنشلة تبدع</span><span class="sep">✦</span>
+      <span>100% طبيعي</span><span class="sep">✦</span>
+      <span>+5000 زبون سعيد</span><span class="sep">✦</span>
+      <span>توصيل لكل الجزائر</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">منتجاتنا</p>
+        <h2 class="section-title">اختر علبتك المفضلة</h2>
+        <div class="title-ornament"><span></span><span class="diamond">✦</span><span></span></div>
+        <p class="section-desc">كل علبة مصنوعة بعناية فائقة من أجود المكونات</p>
+      </div>
+      <div class="products-grid">
+
+        <div class="product-card reveal">
+          <div class="product-img-wrap">
+            <img src="images/tiramisu_boxes.png" alt="علبة كلاسيك" />
+            <div class="product-tag">الأكثر مبيعاً</div>
+          </div>
+          <div class="product-body">
+            <p class="prod-eyebrow">4 قطع</p>
+            <h3 class="prod-name">علبة كلاسيك</h3>
+            <p class="prod-desc">المذاق الأصلي بكريم المسكاربوني والإسبريسو</p>
+            <div class="prod-foot">
+              <span class="prod-price">850 دج</span>
+              <button class="btn btn-rust btn-sm" onclick="openOrderModal('كلاسيك 4 قطع','850')">اطلب الآن</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card product-card--featured reveal delay-1">
+          <div class="product-img-wrap">
+            <img src="images/tiramisu_boxes.png" alt="علبة فاميلي" />
+            <div class="product-tag tag-gold">عرض خاص ⭐</div>
+          </div>
+          <div class="product-body">
+            <p class="prod-eyebrow">8 قطع</p>
+            <h3 class="prod-name">علبة فاميلي</h3>
+            <p class="prod-desc">مثالية للعائلة والتجمعات، طعم يجمع الكل</p>
+            <div class="prod-foot">
+              <span class="prod-price">1500 دج <del class="prod-old">1700</del></span>
+              <button class="btn btn-rust btn-sm" onclick="openOrderModal('فاميلي 8 قطع','1500')">اطلب الآن</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card reveal delay-2">
+          <div class="product-img-wrap">
+            <img src="images/tiramisu_boxes.png" alt="علبة بريميوم" />
+            <div class="product-tag tag-dark">محدود</div>
+          </div>
+          <div class="product-body">
+            <p class="prod-eyebrow">12 قطع</p>
+            <h3 class="prod-name">علبة بريميوم</h3>
+            <p class="prod-desc">للمناسبات الخاصة، تغليف فاخر مع هدية</p>
+            <div class="prod-foot">
+              <span class="prod-price">2200 دج</span>
+              <button class="btn btn-rust btn-sm" onclick="openOrderModal('بريميوم 12 قطع','2200')">اطلب الآن</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SPLIT: STORY ===== -->
+  <section class="split-section split-img-right" id="story">
+    <div class="split-text reveal">
+      <p class="section-eyebrow">قصتنا</p>
+      <h2 class="section-title">من خنشلة<br />إلى قلوبكم</h2>
+      <div class="title-ornament"><span></span><span class="diamond">✦</span><span></span></div>
+      <p class="split-body">
+        في قلب الجبال الشامخة لولاية <strong>خنشلة</strong>، حيث تعانق الثلوج القمم وتعطر الأوديةُ الهواءَ بعطر الأصالة
+        — وُلدت فكرة جنونية بسيطة: <em>لماذا لا يكون للجزائريين تيراميسوهم الخاص؟</em>
+      </p>
+      <p class="split-body">
+        لم تكن البداية سهلة. لكن بعزيمة أبناء خنشلة وصبرهم المعروف، واصلنا المحاولة. اليوم، <strong>أنيسو
+          تيراميسو</strong> علامة يعرفها الجزائريون من الشرق إلى الغرب.
+      </p>
+      <a href="#contact" class="btn btn-rust">تواصل معنا</a>
+    </div>
+    <div class="split-img reveal delay-1">
+      <img src="images/khenchela_story.png" alt="قصة خنشلة" />
+      <div class="split-badge">
+        <span class="badge-year">2021</span>
+        <span class="badge-label">بداية الحلم</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY FULL BG ===== -->
+  <section class="why-section">
+    <div class="why-bg"></div>
+    <div class="why-overlay"></div>
+    <div class="container why-inner">
+      <div class="why-text reveal">
+        <p class="section-eyebrow light">لماذا نحن؟</p>
+        <h2 class="section-title light">جودة لا تُضاهى</h2>
+        <div class="title-ornament light"><span></span><span class="diamond">✦</span><span></span></div>
+        <p class="split-body light">كل قطعة من أنيسو تيراميسو تحكي قصة الأصالة والدقة — من يد جزائرية بقلب خنشلاوي.</p>
+        <a href="#products" class="btn btn-rust">اكتشف منتجاتنا</a>
+      </div>
+      <div class="why-list reveal delay-1">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div class="why-content">
+            <h4>مكونات طازجة يومياً</h4>
+            <p>نستخدم فقط أجود المكونات الطبيعية من مزارع موثوقة</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div class="why-content">
+            <h4>وصفة سرية فريدة</h4>
+            <p>وصفتنا الخاصة المطورة على مدى سنوات من التجربة</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div class="why-content">
+            <h4>ضمان الجودة</h4>
+            <p>كل قطعة تمر بمعايير صارمة قبل وصولها إليك</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div class="why-content">
+            <h4>توصيل سريع</h4>
+            <p>نوصل لباب منزلك في أقل من 24 ساعة عبر الجزائر</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STORES ===== -->
+  <section class="stores" id="stores">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">محلاتنا</p>
+        <h2 class="section-title">أين تجدنا؟</h2>
+        <div class="title-ornament"><span></span><span class="diamond">✦</span><span></span></div>
+        <p class="section-desc">نتواجد في أكثر من 20 محل عبر الجمهورية الجزائرية</p>
+      </div>
+      <div class="stores-filter reveal">
+        <button class="filter-btn active" onclick="filterStores('all',this)">الكل</button>
+        <button class="filter-btn" onclick="filterStores('خنشلة',this)">خنشلة</button>
+        <button class="filter-btn" onclick="filterStores('باتنة',this)">باتنة</button>
+        <button class="filter-btn" onclick="filterStores('قسنطينة',this)">قسنطينة</button>
+        <button class="filter-btn" onclick="filterStores('سطيف',this)">سطيف</button>
+        <button class="filter-btn" onclick="filterStores('الجزائر',this)">الجزائر</button>
+      </div>
+      <div class="stores-grid" id="storesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== ORDER / SPLIT ===== -->
+  <section class="split-section split-img-left" id="order">
+    <div class="split-img reveal">
+      <img src="images/tiramisu_hero.png" alt="اطلب الآن" />
+    </div>
+    <div class="split-text reveal delay-1">
+      <p class="section-eyebrow">اطلب الآن</p>
+      <h2 class="section-title">أوصل لبابك<br />في 24 ساعة</h2>
+      <div class="title-ornament"><span></span><span class="diamond">✦</span><span></span></div>
+      <p class="split-body">اختر علبتك واملأ البيانات — نتواصل معك لتأكيد الطلب وتوصيله.</p>
+      <div class="order-quick-grid">
+        <button class="order-quick-btn" onclick="openOrderModal('كلاسيك 4 قطع','850')">
+          <span class="oqb-name">كلاسيك</span><span class="oqb-price">850 دج</span>
+        </button>
+        <button class="order-quick-btn" onclick="openOrderModal('فاميلي 8 قطع','1500')">
+          <span class="oqb-name">فاميلي</span><span class="oqb-price">1500 دج</span>
+        </button>
+        <button class="order-quick-btn" onclick="openOrderModal('بريميوم 12 قطع','2200')">
+          <span class="oqb-name">بريميوم</span><span class="oqb-price">2200 دج</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">آراء الزبائن</p>
+        <h2 class="section-title">ماذا يقول زبائننا؟</h2>
+        <div class="title-ornament"><span></span><span class="diamond">✦</span><span></span></div>
+        <p class="section-desc">أكثر من 5000 زبون جرّبوا وعادوا مجدداً</p>
+      </div>
+      <div class="reviews-track-wrapper">
+        <div class="reviews-track" id="reviewsTrack"></div>
+      </div>
+      <div class="reviews-dots" id="reviewsDots"></div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">تواصل معنا</p>
+        <h2 class="section-title">نحن هنا لخدمتك</h2>
+        <div class="title-ornament"><span></span><span class="diamond">✦</span><span></span></div>
+      </div>
+      <div class="contact-wrapper">
+        <div class="contact-info reveal">
+          <div class="contact-card"><span class="contact-icon">📞</span>
+            <div><strong>اتصل بنا</strong>
+              <p>0555 123 456</p>
+            </div>
+          </div>
+          <div class="contact-card"><span class="contact-icon">💬</span>
+            <div><strong>واتساب</strong>
+              <p>0555 123 456</p>
+            </div>
+          </div>
+          <div class="contact-card"><span class="contact-icon">📸</span>
+            <div><strong>إنستقرام</strong>
+              <p>@anisou_tiramisu</p>
+            </div>
+          </div>
+          <div class="contact-card"><span class="contact-icon">📍</span>
+            <div><strong>عنواننا</strong>
+              <p>خنشلة، الجزائر</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-btn fb">f</a>
+            <a href="#" class="social-btn ig">📷</a>
+            <a href="#" class="social-btn tt">TikTok</a>
+          </div>
+        </div>
+        <form class="contact-form reveal delay-1" onsubmit="submitContact(event)">
+          <div class="form-group"><label>الاسم</label><input type="text" placeholder="اسمك الكامل" required /></div>
+          <div class="form-group"><label>رقم الهاتف</label><input type="tel" placeholder="05XXXXXXXX" required /></div>
+          <div class="form-group"><label>الموضوع</label><input type="text" placeholder="موضوع رسالتك" /></div>
+          <div class="form-group"><label>الرسالة</label><textarea placeholder="اكتب رسالتك هنا..." rows="4"
+              required></textarea></div>
+          <button type="submit" class="btn btn-rust btn-full">إرسال الرسالة ✉️</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo"><span>🍮</span> أنيسو تيراميسو</div>
+          <p>أفضل تيراميسو جزائري — صناعة خنشلاوية بامتياز</p>
+          <div class="hashtag-box">
+            <span class="hashtag">#أنيسو_تيراميسو</span>
+            <span class="hashtag">#تيراميسو_جزائري</span>
+            <span class="hashtag">#خنشلة_تبدع</span>
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="#products">منتجاتنا</a></li>
+            <li><a href="#stores">محلاتنا</a></li>
+            <li><a href="#story">قصتنا</a></li>
+            <li><a href="#reviews">الآراء</a></li>
+            <li><a href="#contact">تواصل</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>منتجاتنا</h4>
+          <ul>
+            <li><a href="#order">علبة كلاسيك — 850 دج</a></li>
+            <li><a href="#order">علبة فاميلي — 1500 دج</a></li>
+            <li><a href="#order">علبة بريميوم — 2200 دج</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 أنيسو تيراميسو — جميع الحقوق محفوظة</p>
+        <p class="dev-credit">صُمِّم بـ ❤️ بواسطة <a href="https://github.com" target="_blank">#ramzi_dev</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== ORDER MODAL ===== -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeOrderModal()">✕</button>
+      <h2>اطلب الآن</h2>
+      <p class="modal-subtitle">أكمل بياناتك وسنتواصل معك في أقرب وقت</p>
+      <form class="order-form" id="orderForm" onsubmit="submitOrder(event)">
+        <div class="form-group"><label>المنتج المختار</label><input type="text" id="modalProduct" readonly /></div>
+        <div class="form-group">
+          <label>الكمية</label>
+          <div class="qty-control">
+            <button type="button" onclick="changeQty(-1)">−</button>
+            <input type="number" id="qty" value="1" min="1" max="20" readonly />
+            <button type="button" onclick="changeQty(1)">+</button>
+          </div>
+        </div>
+        <div class="form-group"><label>الاسم الكامل *</label><input type="text" id="orderName" placeholder="أدخل اسمك"
+            required /></div>
+        <div class="form-group"><label>رقم الهاتف *</label><input type="tel" id="orderPhone" placeholder="05XXXXXXXX"
+            required /></div>
+        <div class="form-group">
+          <label>الولاية</label>
+          <select id="orderWilaya">
+            <option value="">اختر ولايتك</option>
+            <option>خنشلة</option>
+            <option>باتنة</option>
+            <option>بسكرة</option>
+            <option>سطيف</option>
+            <option>قسنطينة</option>
+            <option>الجزائر العاصمة</option>
+            <option>وهران</option>
+            <option>أخرى</option>
+          </select>
+        </div>
+        <div class="form-group"><label>العنوان</label><textarea id="orderAddress"
+            placeholder="حيّك، شارعك..."></textarea></div>
+        <div class="modal-total"><span>المجموع:</span><span id="modalTotal" class="total-price">850 دج</span></div>
+        <button type="submit" class="btn btn-rust btn-full">✅ تأكيد الطلب</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+
+</html>
