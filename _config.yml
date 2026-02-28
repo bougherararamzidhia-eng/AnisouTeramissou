@@ -1,0 +1,18 @@
+# GitHub Pages Configuration
+title: أنيسو تيراميسو
+description: أفضل تيراميسو جزائري حقيقي من ولاية خنشلة
+url: https://bougherararamzidhia-eng.github.io/AnisouTeramissou
+baseurl: /AnisouTeramissou
+
+theme: null
+remote_theme: null
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude from processing
+exclude:
+  - .gitignore
+  - README.md
+  - LICENSE
