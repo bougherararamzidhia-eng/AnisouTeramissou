@@ -51,11 +51,11 @@
     return {
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      r: Math.random() * 2.2 + 0.5,
-      alpha: Math.random() * 0.45 + 0.08,
-      dx: (Math.random() - 0.5) * 0.35,
-      dy: -(Math.random() * 0.55 + 0.15),
-      color: Math.random() > 0.5 ? '#E8B86D' : '#A0472A',
+      r: Math.random() * 2.5 + 0.8,
+      alpha: Math.random() * 0.45 + 0.15,
+      dx: (Math.random() - 0.5) * 0.45,
+      dy: -(Math.random() * 0.6 + 0.2),
+      color: Math.random() > 0.6 ? '#3D1E0E' : '#5C2E14',
     };
   }
   for (let i = 0; i < PCOUNT; i++) particles.push(mkParticle());
@@ -275,6 +275,101 @@ function showToast(msg) {
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
-    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' }); }
   });
 });
+
+/* ============================================================
+   3D PARALLAX INGREDIENTS ENGINE (INFINITE WRAP)
+   ============================================================ */
+function initParallaxBackground() {
+  const container = document.getElementById('parallaxBg');
+  if (!container) return;
+
+  const ingredients = ['🍓', '🤎', '☁️', '🥖', '🍫', '🍓', '🥖'];
+  const NUM_ITEMS = 35;
+  const items = [];
+  const vh = window.innerHeight;
+  const vw = window.innerWidth;
+
+  for (let i = 0; i < NUM_ITEMS; i++) {
+    const el = document.createElement('div');
+    el.className = 'parallax-item';
+    el.textContent = ingredients[Math.floor(Math.random() * ingredients.length)];
+
+    // depth: < 1 bg, > 1 fg
+    const depth = Math.random() * 1.5 + 0.3; // 0.3 to 1.8
+    const scale = depth * (Math.random() * 0.7 + 0.5);
+
+    // Random position across the visible screen (slightly offscreen to allow entering)
+    let xPos = Math.random() * vw;
+    let yPos = Math.random() * (vh * 1.5) - (vh * 0.25); // -25% to 125% vh
+
+    const baseRotation = Math.random() * 360;
+    const rotSpeed = (Math.random() - 0.5) * 0.3;
+
+    let blurAmt = 0;
+    if (depth < 0.6) blurAmt = (0.6 - depth) * 5;
+    if (depth > 1.3) blurAmt = (depth - 1.3) * 6;
+
+    // Set initial static styles
+    el.style.left = `0px`; // we will use transform for x and y
+    el.style.top = `0px`;
+    el.style.fontSize = `${35 * scale}px`;
+    el.style.filter = `blur(${blurAmt}px) drop-shadow(0 4px 12px rgba(61,30,14,0.15))`;
+    el.style.opacity = Math.min(1, depth + 0.1);
+
+    items.push({ el, depth, xPos, yPos, baseRotation, rotSpeed, currentY: yPos });
+    container.appendChild(el);
+  }
+
+  let lastScrollY = window.scrollY;
+  let scrollDelta = 0;
+
+  window.addEventListener('scroll', () => {
+    // We only care about how much we scrolled since last frame
+    scrollDelta += (window.scrollY - lastScrollY);
+    lastScrollY = window.scrollY;
+  }, { passive: true });
+
+  function renderParallax() {
+    // Apply a fraction of the scrollDelta (smoothing)
+    const moveY = scrollDelta * 0.1;
+    scrollDelta -= moveY; // drain the delta
+
+    items.forEach(item => {
+      // Background items (depth < 1) move SLOWER than scroll (they don't keep up with the page going up, so they visually go UP on the screen)
+      // Foreground items (depth > 1) move FASTER than scroll (they visually go DOWN on the screen)
+      // Actually, standard parallax: things close up move FASTER.
+      // So if I scroll DOWN (+ delta), page goes UP.
+      // Emojis should go UP by (delta * depth).
+
+      item.currentY -= (moveY * item.depth);
+
+      // Infinite Wrapping logic
+      const outBottom = vh + 150;
+      const outTop = -150;
+
+      if (item.currentY < outTop) {
+        item.currentY = outBottom; // Wrap to bottom
+        item.xPos = Math.random() * vw; // new random X
+      } else if (item.currentY > outBottom) {
+        item.currentY = outTop; // Wrap to top
+        item.xPos = Math.random() * vw;
+      }
+
+      // Base slow floating even without scroll
+      item.currentY -= (0.2 * item.depth);
+
+      const currentRot = item.baseRotation + (lastScrollY * item.rotSpeed);
+      item.el.style.transform = `translate3d(${item.xPos}px, ${item.currentY}px, 0) rotateZ(${currentRot}deg)`;
+    });
+
+    requestAnimationFrame(renderParallax);
+  }
+
+  renderParallax();
+}
+
+// Initialize
+initParallaxBackground();
