@@ -184,9 +184,18 @@ img {
   gap: 10px;
 }
 
-.logo-icon {
-  font-size: 1.6rem;
-  filter: drop-shadow(0 2px 4px rgba(61, 30, 14, .15));
+.logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(61, 30, 14, .1));
+}
+
+.logo-img-small {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 8px;
 }
 
 .logo-text {
@@ -338,7 +347,7 @@ img {
 .hero-img-bg {
   position: absolute;
   inset: 0;
-  background: url('images/tiramisu_hero.png') center center / cover no-repeat;
+  background: url('H389b90cb38a74d44b03aad7dc7ef573cM.avif') center center / cover no-repeat;
   filter: saturate(1.1) brightness(1.1);
   animation: heroZoom 14s ease-in-out infinite alternate;
 }
@@ -799,7 +808,7 @@ section {
 .why-bg {
   position: absolute;
   inset: 0;
-  background: url('images/tiramisu_boxes.png') center center / cover no-repeat;
+  background: url('images.jpg') center center / cover no-repeat;
   filter: brightness(1.2) saturate(.8);
   opacity: .15;
 }
@@ -1287,9 +1296,10 @@ section {
   text-transform: uppercase;
   letter-spacing: 2px;
   display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
   color: #FFF;
 }
 
